@@ -1,0 +1,33 @@
+{
+  "name": "js2-felixrydberg-miniprojekt-4",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "parcel ./src/index.html",
+    "build": "parcel build ./src/index.html --dist-dir docs --public-url ./",
+    "clean": "del-cli ./.parcel-cache ./docs ./dist"
+  },
+  "browserslist": [
+    "Firefox>95",
+    "Chrome>95"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felixrydberg/js2-felixrydberg-miniprojekt-4.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felixrydberg/js2-felixrydberg-miniprojekt-4/issues"
+  },
+  "homepage": "https://github.com/felixrydberg/js2-felixrydberg-miniprojekt-4#readme",
+  "devDependencies": {
+    "del-cli": "^4.0.1",
+    "parcel": "^2.3.2",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "firebase": "^9.6.9"
+  }
+}
