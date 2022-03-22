@@ -5,7 +5,7 @@
 
 .article-msg article {
   display: grid;
-  grid-template: auto / auto auto 70%;
+  grid-template: auto / auto auto 70% auto;
   border: solid 1px black;
   margin: 1rem;
   border-radius: 0.5rem;
@@ -14,6 +14,14 @@
 
 .article-msg article p {
   padding: 1rem;
+}
+
+.article-msg article button {
+  grid-column: 4;
+}
+
+.article-msg article form {
+  grid-column: 1 / 4;
 }
 
 .article-msg article .msg-content {

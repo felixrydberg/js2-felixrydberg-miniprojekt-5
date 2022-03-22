@@ -17,4 +17,7 @@ export class Message {
   reverse() {
     this.messages.reverse();
   }
+  editMessage(index, newmsg) {
+    this.messages[index] = newmsg;
+  }
 }

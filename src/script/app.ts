@@ -59,12 +59,25 @@ import { ref, onValue, set } from 'firebase/database';
     article.appendChild(content);
 
     if (localStorage.getItem('name') === message.name) {
-      const button: HTMLElement = document.createElement('button');
-      button.addEventListener('click', () => {
+      const container = document.createElement('figure');
+      container.classList.add('msg-btn-container');
+
+      const editBtn: HTMLElement = document.createElement('button');
+      editBtn.innerText = 'Edit';
+      editBtn.addEventListener('click', () => {
+        editMessage(index, messages, editBtn.parentNode.parentNode);
+      });
+
+      container.appendChild(editBtn);
+
+      const removeBtn: HTMLElement = document.createElement('button');
+      removeBtn.innerText = 'x';
+      removeBtn.addEventListener('click', () => {
         deleteMessage(index, messages);
       });
 
-      article.appendChild(button);
+      container.appendChild(removeBtn);
+      article.appendChild(container);
     }
 
     parent.appendChild(article);
@@ -96,6 +109,44 @@ import { ref, onValue, set } from 'firebase/database';
   const deleteMessage = (index, messages) => {
     messages.removeField(index);
     messages.reverse();
+    set(ref(db), messages.messages);
+  };
+
+  const editMessage = (index, messages, parent) => {
+    const form: HTMLElement = document.createElement('form');
+
+    const input: HTMLInputElement = document.createElement('input');
+    input.classList.add('msg-edit');
+    input.setAttribute('type', 'text');
+    input.setAttribute('requried', 'null');
+
+    const submit: HTMLElement = document.createElement('input');
+    submit.setAttribute('type', 'submit');
+    submit.setAttribute('value', 'Edit');
+
+    form.appendChild(input);
+    form.appendChild(submit);
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const newmsg = {
+        content: input.value,
+        date: messages.messages[index].date,
+        name: messages.messages[index].name,
+        type: messages.messages[index].type,
+      };
+
+      messages.editMessage(index, newmsg);
+
+      uploadEdit(messages);
+    });
+
+    parent.appendChild(form);
+  };
+
+  const uploadEdit = (messages) => {
+    messages.reverse();
+    console.log(messages.messages);
     set(ref(db), messages.messages);
   };
 })();
