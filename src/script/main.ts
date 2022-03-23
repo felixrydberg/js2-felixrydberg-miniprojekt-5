@@ -1,8 +1,9 @@
-(function () {
-  document.querySelector('.msg-form').addEventListener('submit', (event) => {
-    event.preventDefault();
-    const input: HTMLInputElement = document.querySelector('.form-name');
+document.querySelector('.msg-href').addEventListener('click', (event) => {
+  const input: HTMLInputElement = document.querySelector('.form-name');
+  if (input.value !== '') {
     localStorage.setItem('name', input.value);
-    window.location.replace(new URL('../app.html', import.meta.url));
-  });
-})();
+  } else {
+    event.preventDefault();
+    alert('Please enter a name!');
+  }
+});
