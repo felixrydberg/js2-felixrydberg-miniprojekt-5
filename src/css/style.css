@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
 }
 
 body {
@@ -10,11 +11,67 @@ body {
 
 .grid-container {
   display: grid;
+  grid: auto auto auto / auto;
 }
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+/* Header */
 
 header {
   grid-row: 1;
 }
+
+header nav {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+header nav ul li {
+  height: 100%;
+}
+
+header nav ul li a{
+  padding: 1rem;
+}
+
+header nav form {
+  display: grid;
+  grid-template: auto / auto 70% 20%;
+}
+
+header nav form input {
+  padding: 1rem;
+}
+
+header nav form select {
+  padding: 1rem;
+  border: none;
+  background: none;
+  color: white; 
+  background: rgba(110, 110, 110, 0.5);
+  border: transparent 1px solid;
+  border-end-start-radius: 0.5rem;
+  border-start-start-radius: 0.5rem;
+}
+
+header nav form .form-content {
+  background: rgba(110, 110, 110, 0.5);
+  border: transparent 1px solid;
+}
+
+header nav form .form-submit {
+  border-end-end-radius: 0.5rem;
+  border-start-end-radius: 0.5rem;
+  background: rgba(110, 110, 110, 0.5);
+  border: transparent 1px solid;
+  color: white;
+}
+
+
 
 /* Main */
 
@@ -28,20 +85,35 @@ main .banner {
   background: #0e0e0e;
 }
 
-main .banner h1 {
+main .banner p {
   color: white;
   padding: 2rem;
+  font-size: 2rem;
   text-align: center;
 }
 
 main .article-form {
-  border: solid 1px black;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 main .article-form input {
+  background: rgba(110, 110, 110, 0.5);
+  border: transparent 1px solid;
+  border-end-start-radius: 0.5rem;
+  border-start-start-radius: 0.5rem;
+  padding: 1rem;
+  color: white;
+}
+
+main .article-form a {
+  font-size: 0.9rem;
+  padding: 1rem;
+  border-end-end-radius: 0.5rem;
+  border-start-end-radius: 0.5rem;
+  background: rgba(110, 110, 110, 0.5);
+  border: transparent 1px solid;
 }
 
 main .article-msg article {
@@ -55,6 +127,7 @@ main .article-msg article {
 
 main .article-msg article p {
   padding: 1rem;
+  color: white;
 }
 
 main .article-msg article button {

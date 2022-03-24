@@ -3,6 +3,17 @@ import { Message } from './message';
 import { ref, onValue, set } from 'firebase/database';
 
 (function () {
+
+  //If username = null go back to home page :)
+  if(!localStorage.getItem("name")) {
+    window.location.href = "../";
+  }
+  //Clearar localstorage när man går till Home pagen
+  document.querySelector("header nav ul li a").addEventListener("click", ()=>{
+    localStorage.clear()
+  });
+
+
   //Startar messages classen och sätt onValue funktionen
   (function () {
     const messages: Message = new Message();
