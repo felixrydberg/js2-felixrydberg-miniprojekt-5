@@ -9,19 +9,25 @@
     <script type="module" src="script/app.ts"></script>
   </head>
   <body>
-    <form class="msg-form">
-      <select class="form-type" required>
-        <option value="Text">Text</option>
-        <option value="ImgUrl">ImgUrl</option>
-      </select>
-      <input
-        class="form-content"
-        type="text"
-        placeholder="Message Content"
-        required
-      />
-      <input type="submit" />
-    </form>
-    <article class="article-msg"></article>
+    <div class="grid-container">
+      <header></header>
+      <main>
+        <form class="msg-form">
+          <select class="form-type" required>
+            <option value="Text">Text</option>
+            <option value="ImgUrl">ImgUrl</option>
+          </select>
+          <input
+            class="form-content"
+            type="text"
+            placeholder="Message Content"
+            required
+          />
+          <input type="submit" />
+        </form>
+        <article class="article-msg"></article>
+      </main>
+      <footer></footer>
+    </div>
   </body>
 </html>

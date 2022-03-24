@@ -1,9 +1,50 @@
 * {
   padding: 0;
   margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.article-msg article {
+body {
+  background: #0e0e0e;
+}
+
+.grid-container {
+  display: grid;
+}
+
+header {
+  grid-row: 1;
+}
+
+/* Main */
+
+main {
+  grid-row: 2;
+  background: #0e0e0e;
+}
+
+main .banner {
+  height: 20vh;
+  background: #0e0e0e;
+}
+
+main .banner h1 {
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+main .article-form {
+  border: solid 1px black;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+main .article-form input {
+}
+
+main .article-msg article {
   display: grid;
   grid-template: auto / auto auto 70% auto;
   border: solid 1px black;
@@ -12,19 +53,52 @@
   background: rgba(34, 34, 34, 0.5);
 }
 
-.article-msg article p {
+main .article-msg article p {
   padding: 1rem;
 }
 
-.article-msg article button {
+main .article-msg article button {
   grid-column: 4;
 }
 
-.article-msg article form {
+main .article-msg article form {
   grid-column: 1 / 4;
 }
 
-.article-msg article .msg-content {
+main .article-msg article .msg-content {
   grid-row: 1;
   grid-column: 3;
+}
+
+/* Footer */
+
+footer {
+  grid-row: 3;
+}
+
+@media (min-width: 500px) {
+  main .banner {
+    height: 60vh;
+    background: url('../img/banner/1024x800.png');
+    background-size: cover;
+    background-position: top;
+  }
+}
+
+@media (min-width: 1300px) {
+  main .banner {
+    height: 60vh;
+    background: url('../img/banner/1920x1200.png');
+    background-size: cover;
+    background-position: top;
+  }
+}
+
+@media (min-width: 1920px) {
+  main .banner {
+    height: 60vh;
+    background: url('../img/banner/2560x1600.png');
+    background-size: cover;
+    background-position: top;
+  }
 }

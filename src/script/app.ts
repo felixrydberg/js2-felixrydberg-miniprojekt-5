@@ -36,8 +36,23 @@ import { ref, onValue, set } from 'firebase/database';
   const displayMsg = (messages, message, index) => {
     const parent: HTMLElement = document.querySelector('.article-msg');
 
+    const months: string[] = [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
+    ];
+
     let year: number = new Date(message.date).getFullYear();
-    let months: number = new Date(message.date).getMonth();
+    let month: number = new Date(message.date).getMonth();
 
     const article: HTMLElement = document.createElement('article');
     article.classList.add(index);
@@ -52,7 +67,7 @@ import { ref, onValue, set } from 'firebase/database';
 
     const date: HTMLElement = document.createElement('p');
     date.classList.add('msg-date');
-    date.innerText = `${year}/${months}`;
+    date.innerText = `${year}/${months[month]}`;
 
     article.appendChild(name);
     article.appendChild(date);
